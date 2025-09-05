@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker - Home</title>
+
+  <!-- SF Pro font -->
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+  <body class="home-page">
+  <div class="container">
+    <!-- Header -->
+
+    <!-- Metric Card -->
+<div class="metric-card">
+  <h2>Total Balance</h2>
+  <div class="balance" id="balance">$0.00</div>
+  <div class="income-expense">
+    <div class="income">
+      <p>⬇ Income</p>
+      <p class="amount" id="total-income">$0.00</p>
+    </div>
+    <div class="expense">
+      <p>⬆ Expenses</p>
+      <p class="amount" id="total-expense">$0.00</p>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden Form Section -->
+<div id="formContainer" class="form-container hidden">
+  <!-- Income form -->
+  <div class="form-section">
+    <input id="incomeAmount" type="number" placeholder="Income Amount" required>
+    <input id="incomeCategory" type="text" placeholder="Category (e.g. Salary)">
+    <input id="incomeNote" type="text" placeholder="Note (optional)">
+    <button id="addIncomeBtn">Add Income</button>
+  </div>
+
+  <!-- Expense form -->
+  <div class="form-section">
+    <input id="expenseAmount" type="number" placeholder="Expense Amount" required>
+    <input id="expenseCategory" type="text" placeholder="Category (e.g. Food)">
+    <input id="expenseNote" type="text" placeholder="Note (optional)">
+    <button id="addExpenseBtn">Add Expense</button>
+  </div>
+</div>
+
+<!-- Transaction history -->
+<h3 style="color:white;">Transactions</h3>
+<ul id="transactions-list"></ul>
+
+  <!-- Transaction history -->
+  <h3 style="color:white;">Transactions</h3>
+  <ul id="transactions-list"></ul>
+
+<!-- ✅ Bottom Navigation Bar -->
+<div class="bottom-nav">
+  <a href="{{ url_for('home') }}" class="nav-item active">
+    <img src="{{ url_for('static', filename='home.png') }}" alt="Home" class="nav-icon">
+  </a>
+  <a href="{{ url_for('graph') }}" class="nav-item">
+    <img src="{{ url_for('static', filename='graph.png') }}" alt="Graph" class="nav-icon">
+  </a>
+  <a href="{{ url_for('category') }}" class="nav-item">
+    <img src="{{ url_for('static', filename='category.png') }}" alt="Category" class="nav-icon">
+  </a>
+  <a href="{{ url_for('profile') }}" class="nav-item">
+    <img src="{{ url_for('static', filename='profile.jpeg') }}" alt="Profile" class="nav-icon">
+  </a>
+</div>
+
+
+<!-- ✅ Floating Add Button (separated from nav bar) -->
+<div class="floating-add">
+  <button id="toggleFormBtn" class="add-btn" aria-label="Add">
+    <span class="plus">+</span>
+  </button>
+</div>
+
+
+  <!-- ✅ End Bottom Navigation Bar -->
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>

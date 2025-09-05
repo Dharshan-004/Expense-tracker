@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Family Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sketch.js/1.0/sketch.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body class="login-page">
+  <!-- Canvas for hover effect -->
+  <div id="sketch-container"></div>
+
+  <!-- Login Card -->
+  <main class="login-container">
+    <div class="login-box">
+      <h1>🔐Expense Tracker</h1>
+      <form method="POST" action="/login">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit">Login</button>
+      </form>
+      {% if error %}
+        <p style="color:red;">{{ error }}</p>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>
