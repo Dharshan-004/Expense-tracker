@@ -1,0 +1,425 @@
+/* General Body Styling */
+html, body {
+  height: 100%; /* Ensure html and body can fill the screen height */
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #a4508b, #5f0a87);
+  background-attachment: fixed; /* keeps gradient constant when scrolling */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* New container for centering content */
+.login-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  pointer-events: none; /* Keeps particle hover working */
+}
+
+/* Card Box Style */
+.login-box {
+  background: white;
+  padding: 30px 70px; /* more vertical space, less horizontal */
+  border-radius: 8px; /* subtle curve for rectangle look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 260px; /* narrow width */
+  width: 100%;
+  pointer-events: auto;
+  text-align: center;
+}
+
+
+
+/* Canvas Container - The Source of the Effect */
+#sketch-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;               /* behind the form (form will use z-index:2) */
+  pointer-events: none;     /* keep it from blocking clicks (mouse events will be forwarded manually) */
+  /* Add background image with transparency */
+}
+
+/* Title Styling */
+h1 {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 0;
+  color: black;
+}
+
+header{
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+}
+
+
+/* Main Form Section Wrapper */
+.form-section {
+  max-width: 600px;
+  margin: 0 auto; /* Margin is now for horizontal centering within its block */
+  padding: 20px;
+  border-radius: 12px;
+  /* pointer-events: none; is inherited from .login-container */
+}
+
+/* Form Element Itself */
+form {
+  /* Re-enables mouse events for the form and its children */
+  pointer-events: auto;
+}
+
+/* --- Input and Button Styles (No Changes Needed Here) --- */
+
+/* Input Fields */
+input {
+  margin: 8px 5px;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  width: calc(100% - 1px);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25,118,210,0.2);
+}
+
+/* Login Button */
+button {
+  background: linear-gradient(135deg, #a4508b, #5f0a87);
+  color: white;
+  padding: 12px 22px;  /* Bigger button */
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Subtle white border */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;     /* Bigger text */
+  margin-top: 10px;
+  transition: background 0.2s ease, transform 0.1s ease, border 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #52123f, #40075a);
+  border: 2px solid rgba(255, 255, 255, 0.9); /* Brighter white border on hover */
+  transform: scale(1.02);
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .form-section {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  input, button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+#sketch-container canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Metric Card */
+.metric-card {
+  background: linear-gradient(135deg, #a14ee6, #d18cf5);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: calc(100% - 30px);
+}
+
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.balance-amount {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.menu-dots {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;   /* stays visible */
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.menu-icon, .notif-icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Metric Card */
+.metric-card {
+  background: linear-gradient(135deg, #a4508b, #5f0a87);
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center; 
+}
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.balance-amount {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.income-expense {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.income p, .expense p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+.forms-section {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-card {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-card h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+body.home-page {
+  background: #ffffff; /* White background only for Home */
+}
+
+/* Add (+) Button Style */
+/* Add (+) Button Style */
+.add-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.add-btn {
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  font-size: 40px;
+  font-weight: bold;
+  background: #ffffff; /* White circular button */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   border: 3px solid transparent;
+  background-image: linear-gradient(#c45ca5,  #9153ad), 
+                    linear-gradient(135deg, #a4508b, #5f0a87);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Gradient text for + symbol */
+.add-btn .plus {
+  background: white;
+  
+  /* Standard property */
+  background-clip: text;
+  
+  /* Vendor prefixes for compatibility */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+.add-btn:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+/* Form Container (hidden by default) */
+.hidden {
+  display: none;
+}
+
+.form-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+/* Navigation Items */
+.bottom-nav .nav-item {
+  flex: 1;
+  text-align: center;
+  color: #aaa;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.bottom-nav .nav-item.active {
+  color: #6a0dad; /* Active purple */
+}
+
+/* Floating Add Button */
+.add-btn-container {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-btn {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #a4508b, #5f0a87);
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.add-btn:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* Bottom Navigation Icons */
+.nav-icon {
+  width: 32px;      /* consistent size */
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.6;     /* slightly faded when inactive */
+}
+
+/* Active / Hover State */
+.nav-item.active .nav-icon,
+.nav-item:hover .nav-icon {
+  opacity: 1;        /* full color */
+  transform: scale(1.2); /* smooth pop effect */
+}
+.nav-item.active .nav-icon {
+  filter: drop-shadow(0px 0px 6px rgba(164, 80, 139, 0.6));
+}
+/* Reset icon look */
+.nav-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+  opacity: 0.6;
+  filter: none !important;  /* prevents weird color/glow overrides */
+}
+
+/* Active / Hover State */
+.nav-item.active .nav-icon,
+.nav-item:hover .nav-icon {
+  opacity: 1;
+  transform: scale(1.2);
+  filter: drop-shadow(0px 0px 6px rgba(164, 80, 139, 0.4)); /* subtle glow */
+}
